@@ -1,9 +1,17 @@
-import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase/config";
 
-await setDoc(
- doc(db, "users", user.uid),
- {
-   email: email,
-   username: username
- }
-);
+auth.createUserWithEmailAndPassword(email, password)
+
+function register(email, password, username) {
+    auth.createUserWithEmailAndPassword(email, password)
+    .then((response) => {
+        setRegistered(true);
+    })
+    .catch((error) => {
+        setError("Fallo en el registro.");
+    });
+}
+
+<Pressable>
+    onPress={() => navigation.navigate("Login")}
+</Pressable>
