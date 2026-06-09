@@ -1,25 +1,20 @@
-import Login from "./screens/login";
-import Home from "./screens/home";
+import Login from "../screens/Login";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { Pressable } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Register from "../screens/Register";
+import NavegationTab from "./NavegacionTab";
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function Navegation() {
+    console.log("Navegation cargada");
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Register" component={Register} />
-                <Stack.Screen name="Profile" component={Profile} />
-                <Stack.Screen name="NavegacionTab" component={NavegacionTab} />
+                <Stack.Screen name="Login" component={Login}  options = {{headerShown: false}} />
+                <Stack.Screen name="Register" component={Register} options = {{headerShown: false}} />
+                <Stack.Screen name="NavegationTab" component={NavegationTab} options = {{headerShown: false}} />
             </Stack.Navigator>
         </NavigationContainer>
     );
 }
-
-<Pressable>
-    onPress={() => navigation.navigate("Home")}
-</Pressable>

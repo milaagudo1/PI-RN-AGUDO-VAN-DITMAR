@@ -1,6 +1,11 @@
-import { db, auth } from "../firebase/config";
-import { useEffect } from "react";
+import { View, Text } from 'react-native';
 
-function logout() {
-    auth.signOut()
-}  
+
+export default function Home() {
+  return (
+    <View>
+      <Text>Home</Text>
+
+    </View>
+  );
+}

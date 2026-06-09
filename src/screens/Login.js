@@ -1,22 +1,106 @@
-import { Pressable } from "react-native";
-import { auth, db } from "../firebase/config";
+import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
+import { useState } from "react";
+import { auth } from "../firebase/config";
+import { useEffect } from "react";
 
-auth.signInWithEmailAndPassword(email, password)
+export default function Login({ navigation }) {
 
-function login(email, password) {
-    auth.signInWithEmailAndPassword(email, password)
-    .then((response) => {
-        setLoggedIn(true);
-    })
-    .catch((error) => {
-        setError("Fallo en el inicio de sesión.");
-    }); 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  useEffect(() => { 
     auth.onAuthStateChanged((user) => {
-        console.log(user);
+      if (user) {
+        navigation.navigate("NavegationTab");
+      }
     });
+  }, []);
+
+  function onSubmit() {
+
+    auth.signInWithEmailAndPassword( email, password)
+      .then(() => {
+
+        alert("Login correcto");
+
+        navigation.navigate("NavegationTab");
+
+      })
+      .catch(() => {
+        alert("Credenciales incorrectas");
+      });
+  }
+
+  return (
+    <View style={styles.container}>
+
+      <Text>Login</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        keyboardType="email-address"
+        value={email}
+        onChangeText={(texto) => setEmail(texto)}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Contraseña"
+        secureTextEntry={true}
+        value={password}
+        onChangeText={(texto) => setPassword(texto)}
+      />
+
+      <Pressable
+        style={styles.button}
+        onPress={onSubmit}
+      >
+        <Text style={styles.buttonText}>
+          Login
+        </Text>
+      </Pressable>
+
+       <Pressable
+        style={styles.button}
+        onPress={() => navigation.navigate("Register")}
+      >
+        <Text style={styles.buttonText}>
+          Ir a Registro
+        </Text>
+      </Pressable>
+
+    </View>
+  );
 }
 
-<Pressable>
-    onPress={() => navigation.navigate("Home")}
-</Pressable>
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+    marginTop: 20
+  },
+
+  input: {
+    height: 50,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 6,
+    marginVertical: 10
+  },
+
+  button: {
+    backgroundColor: '#28a745',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    alignItems: 'center',
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#28a745'
+  },
+
+  buttonText: {
+    color: '#fff'
+  }
+});
