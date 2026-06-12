@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { db, auth } from '../firebase/config';
+import Camara from '../components/Camara';
+
 
 export default function AddPost({ navigation }) {
     const [descripcion, setDescripcion] = useState('');
     const [error, setError] = useState('');
+    const [photoUri, setPhotoUri] = useState(null);
 
     function onSubmit() {
         if (descripcion === '') {
@@ -17,6 +20,7 @@ export default function AddPost({ navigation }) {
             description: descripcion,
             createdAt: Date.now(),
             likes: []
+    
         })
         .then(() => {
             setDescripcion('');
@@ -27,22 +31,33 @@ export default function AddPost({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>Agregar Publicación</Text>
-            <TextInput
-                style={styles.field}
-                keyboardType='default'
-                placeholder='Escribí una descripción...'
-                multiline={true}
-                onChangeText={text => setDescripcion(text)}
-                value={descripcion}
-            />
-            {error !== '' ? <Text style={styles.error}>{error}</Text> : null}
-            <Pressable style={styles.boton} onPress={() => onSubmit()}>
-                <Text style={styles.textoBoton}>Postear</Text>
-            </Pressable>
-        </View>
-    );
+    <>
+        {
+            photoUri === null
+            ?
+            <Camara setPhotoUri={(uri) => setPhotoUri(uri)} />
+            :
+            <View style={styles.container}>
+                <Text style={styles.titulo}>Agregar Publicación</Text>
+
+                <TextInput
+                    style={styles.field}
+                    keyboardType='default'
+                    placeholder='Escribí una descripción...'
+                    multiline={true}
+                    onChangeText={text => setDescripcion(text)}
+                    value={descripcion}
+                />
+
+                {error !== '' ? <Text style={styles.error}>{error}</Text> : null}
+
+                <Pressable style={styles.boton} onPress={() => onSubmit()}>
+                    <Text style={styles.textoBoton}>Postear</Text>
+                </Pressable>
+            </View>
+        }
+    </>
+);
 }
 
 const styles = StyleSheet.create({
