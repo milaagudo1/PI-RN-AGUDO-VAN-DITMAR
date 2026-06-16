@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../firebase/config";
-import { useEffect } from "react";
 
 export default function Register({ navigation }) {
 

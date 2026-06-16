@@ -19,7 +19,8 @@ export default function AddPost({ navigation }) {
             owner: auth.currentUser.email,
             description: descripcion,
             createdAt: Date.now(),
-            likes: []
+            likes: [],
+            photo: photoUri
     
         })
         .then(() => {
