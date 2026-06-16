@@ -41,8 +41,10 @@ export default function Home({navigation}) {
 }
 
 const styles = StyleSheet.create({
-    flatlist: {
-        width: '100%',
-        flex: 1
-    }
+  flatlist: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    paddingHorizontal: 10,
+    paddingTop: 10
+  }
 });

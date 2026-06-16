@@ -62,38 +62,43 @@ export default function AddPost({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: '#fff'
-    },
-    titulo: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        marginBottom: 15
-    },
-    field: {
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 8,
-        padding: 12,
-        minHeight: 100,
-        textAlignVertical: 'top',
-        marginBottom: 10
-    },
-    error: {
-        color: 'red',
-        marginBottom: 10
-    },
-    boton: {
-        backgroundColor: '#2ecc40',
-        padding: 14,
-        borderRadius: 8,
-        alignItems: 'center'
-    },
-    textoBoton: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 16
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 25
+  },
+
+  titulo: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 25
+  },
+
+  field: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#d9d9d9',
+    borderRadius: 12,
+    minHeight: 150,
+    padding: 15,
+    textAlignVertical: 'top'
+  },
+
+  error: {
+    color: 'red',
+    marginTop: 10
+  },
+
+  boton: {
+    backgroundColor: '#A8D5FF',
+    marginTop: 20,
+    paddingVertical: 15,
+    borderRadius: 12,
+    alignItems: 'center'
+  },
+
+  textoBoton: {
+    fontWeight: 'bold',
+    fontSize: 18
+  }
 });

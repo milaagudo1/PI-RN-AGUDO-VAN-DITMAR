@@ -61,27 +61,34 @@ export default function Profile({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20
-    },
-    username: {
-        fontSize: 22,
-        fontWeight: 'bold'
-    },
-    email: {
-        color: '#666',
-        marginBottom: 15
-    },
-    boton: {
-        backgroundColor: '#e74c3c',
-        padding: 12,
-        borderRadius: 8,
-        alignItems: 'center',
-        marginBottom: 20
-    },
-    textoBoton: {
-        color: '#fff',
-        fontWeight: 'bold'
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 20
+  },
+
+  username: {
+    fontSize: 28,
+    fontWeight: 'bold'
+  },
+
+  email: {
+    fontSize: 14,
+    color: '#777',
+    marginBottom: 25
+  },
+
+  boton: {
+    backgroundColor: '#d45555',
+    paddingVertical: 15,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 25
+  },
+
+  textoBoton: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#fff'
+  }
 });

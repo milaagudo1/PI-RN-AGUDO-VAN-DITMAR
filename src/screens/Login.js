@@ -76,31 +76,44 @@ export default function Login({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 10,
-    marginTop: 20
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    paddingHorizontal: 30
+  },
+
+  titulo: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 40,
+    textAlign: 'center'
   },
 
   input: {
-    height: 50,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+    height: 55,
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 6,
-    marginVertical: 10
+    borderColor: '#d9d9d9',
+    borderRadius: 10,
+    marginBottom: 15,
+    paddingHorizontal: 15
   },
 
   button: {
-    backgroundColor: '#28a745',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    backgroundColor: '#A8D5FF',
+    paddingVertical: 15,
+    borderRadius: 12,
     alignItems: 'center',
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: '#28a745'
+    marginTop: 10
   },
 
   buttonText: {
-    color: '#fff'
+    fontSize: 16,
+    fontWeight: 'bold'
   }
 });
+
+
+
+
+

@@ -19,54 +19,111 @@ export default function Post(props) {
 
     return (
         <View style={styles.card}>
-            <Text style={styles.owner}>{props.post.data.owner}</Text>
+
+            <Text style={styles.owner}>
+                {props.post.data.owner}
+            </Text>
 
             {
                 props.post.data.photo
                 ?
                 <Image
                     style={styles.image}
-                    source={{ uri: `data:image/png;base64,${props.post.data.photo}` }}
+                    source={{
+                        uri: `data:image/png;base64,${props.post.data.photo}`
+                    }}
                 />
                 :
                 null
             }
 
-            <Text>{props.post.data.description}</Text>
+            <Text style={styles.descripcion}>
+                {props.post.data.description}
+            </Text>
 
-            <Pressable onPress={() => toggleLike()}>
-                <Text style={styles.accion}>Me gusta ({props.post.data.likes.length})</Text>
-            </Pressable>
+            <View style={styles.accionesContainer}>
 
-            {
-                props.navigation
-                ?
-                <Pressable onPress={() => props.navigation.navigate('Comentarios', { id: props.post.id })}>
-                    <Text style={styles.accion}>Comentar</Text>
+                <Pressable
+                    style={styles.botonAccion}
+                    onPress={() => toggleLike()}
+                >
+                    <Text style={styles.textoBoton}>
+                        ❤️ Me gusta ({props.post.data.likes.length})
+                    </Text>
                 </Pressable>
-                :
-                null
-            }
+
+                {
+                    props.navigation
+                    ?
+                    <Pressable
+                        style={styles.botonAccion}
+                        onPress={() =>
+                            props.navigation.navigate(
+                                'Comentarios',
+                                { id: props.post.id }
+                            )
+                        }
+                    >
+                        <Text style={styles.textoBoton}>
+                            💬 Comentar
+                        </Text>
+                    </Pressable>
+                    :
+                    null
+                }
+
+            </View>
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     card: {
-        marginBottom: 20,
-        padding: 10
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        padding: 15,
+        marginVertical: 10,
+        marginHorizontal: 10,
+        elevation: 3
     },
+
     owner: {
         fontWeight: 'bold',
-        marginBottom: 5
+        fontSize: 14,
+        color: '#666',
+        marginBottom: 10
     },
+
     image: {
         width: '100%',
-        height: 300,
-        marginBottom: 5
+        height: 250,
+        borderRadius: 15,
+        marginBottom: 10
     },
-    accion: {
-        color: '#2ecc40',
-        marginTop: 5
+
+    descripcion: {
+        fontSize: 16,
+        marginBottom: 15
+    },
+
+    accionesContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 10
+    },
+
+    botonAccion: {
+        backgroundColor: '#A8D5FF',
+        width: '48%',
+        paddingVertical: 12,
+        borderRadius: 10,
+        alignItems: 'center'
+    },
+
+    textoBoton: {
+        fontWeight: 'bold',
+        fontSize: 14
     }
 });

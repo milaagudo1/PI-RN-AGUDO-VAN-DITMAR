@@ -60,31 +60,43 @@ export default function Comentarios({ route }) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20
-    },
-    comentario: {
-        marginBottom: 10
-    },
-    owner: {
-        fontWeight: 'bold'
-    },
-    field: {
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 8,
-        padding: 12,
-        marginVertical: 10
-    },
-    boton: {
-        backgroundColor: '#2ecc40',
-        padding: 12,
-        borderRadius: 8,
-        alignItems: 'center'
-    },
-    textoBoton: {
-        color: '#fff',
-        fontWeight: 'bold'
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 15
+  },
+
+  comentario: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 10
+  },
+
+  owner: {
+    fontWeight: 'bold',
+    marginBottom: 5
+  },
+
+  field: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 12,
+    padding: 15,
+    minHeight: 80,
+    marginVertical: 15
+  },
+
+  boton: {
+    backgroundColor: '#A8D5FF',
+    paddingVertical: 15,
+    borderRadius: 12,
+    alignItems: 'center'
+  },
+
+  textoBoton: {
+    fontWeight: 'bold',
+    fontSize: 16
+  }
 });

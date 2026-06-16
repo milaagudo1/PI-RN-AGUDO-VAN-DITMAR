@@ -96,35 +96,44 @@ export default function Camara(props) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center'
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 
-    camera: {
-        width: 500,
-        height: 500
-    },
+  camera: {
+    width: '90%',
+    height: 500,
+    borderRadius: 20,
+    overflow: 'hidden'
+  },
 
-    shootButton: {
-        padding: 15,
-        marginTop: 10
-    },
+  shootButton: {
+    backgroundColor: '#A8D5FF',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    borderRadius: 15,
+    marginTop: 20
+  },
 
-    preview: {
-        width: 200,
-        height: 200,
-        marginTop: 20
-    },
+  preview: {
+    width: 300,
+    height: 300,
+    borderRadius: 20
+  },
 
-    buttonArea: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        width: '100%',
-        marginTop: 20
-    },
+  buttonArea: {
+    flexDirection: 'row',
+    marginTop: 20
+  },
 
-    button: {
-        padding: 15
-    }
+  button: {
+    backgroundColor: '#A8D5FF',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 10,
+    marginHorizontal: 10
+  }
 });

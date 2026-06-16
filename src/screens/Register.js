@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { auth, db } from "../firebase/config";
 
@@ -95,31 +95,39 @@ export default function Register({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 10,
-    marginTop: 20
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    paddingHorizontal: 30
+  },
+
+  titulo: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 40
   },
 
   input: {
-    height: 50,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+    height: 55,
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 6,
-    marginVertical: 10
+    borderColor: '#d9d9d9',
+    borderRadius: 10,
+    marginBottom: 15,
+    paddingHorizontal: 15
   },
 
   button: {
-    backgroundColor: '#28a745',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    backgroundColor: '#A8D5FF',
+    paddingVertical: 15,
+    borderRadius: 12,
     alignItems: 'center',
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: '#28a745'
+    marginTop: 10
   },
 
   buttonText: {
-    color: '#fff'
+    fontWeight: 'bold',
+    fontSize: 16
   }
 });
