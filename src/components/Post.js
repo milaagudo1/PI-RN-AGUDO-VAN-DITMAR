@@ -29,6 +29,7 @@ export default function Post(props) {
                 ?
                 <Image
                     style={styles.image}
+                    resizeMode="cover" 
                     source={{
                         uri: `data:image/png;base64,${props.post.data.photo}`
                     }}
@@ -48,7 +49,7 @@ export default function Post(props) {
                     onPress={() => toggleLike()}
                 >
                     <Text style={styles.textoBoton}>
-                        ❤️ Me gusta ({props.post.data.likes.length})
+                         Me gusta ({props.post.data.likes.length})
                     </Text>
                 </Pressable>
 
@@ -65,7 +66,7 @@ export default function Post(props) {
                         }
                     >
                         <Text style={styles.textoBoton}>
-                            💬 Comentar
+                             Comentar
                         </Text>
                     </Pressable>
                     :

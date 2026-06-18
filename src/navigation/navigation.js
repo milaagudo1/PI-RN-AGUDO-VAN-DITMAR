@@ -7,7 +7,6 @@ import NavegationTab from "./navigationTab";
 const Stack = createNativeStackNavigator();
 
 export default function Navegation() {
-    console.log("Navegation cargada");
     return (
         <NavigationContainer>
             <Stack.Navigator>
